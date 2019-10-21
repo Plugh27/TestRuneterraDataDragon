@@ -39,9 +39,4 @@ namespace TestRuneterraDataDragon.JsonPattern
         public string type { get; set; }
         public bool collectible { get; set; }
     }
-
-    public class Set1
-    {
-        public List<CardInfo> cardInfos { get; set; }
-    }
 }

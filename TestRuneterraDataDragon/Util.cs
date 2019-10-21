@@ -11,6 +11,9 @@ namespace TestRuneterraDataDragon
 {
     internal class Util
     {
+        public static string JapaneseCode = "ja_jp";
+        public static string EnglishCode = "en_us";
+
         public static bool GetGlobalData(out Dictionary<string, Global> globals)
         {
             // TODO: 毎回アクセスするのではなく、既に取得していたらその内容を返すように
@@ -35,7 +38,15 @@ namespace TestRuneterraDataDragon
             return true;
         }
 
-        public static bool GetSet1Data(out Dictionary<string, Set1> set1s)
+        public static bool GetGlobalData(out Global global, string locale)
+        {
+            GetGlobalData(out Dictionary<string, Global> globals);
+            global = globals[locale]; // TODO: エラー処理
+
+            return true;
+        }
+
+        public static bool GetCardInfosDictionary(out Dictionary<string, List<CardInfo>> cardInfosDictionary)
         {
             // TODO: 毎回アクセスするのではなく、既に取得していたらその内容を返すように
 
@@ -45,18 +56,27 @@ namespace TestRuneterraDataDragon
             Metadata metadata = JsonConvert.DeserializeObject<Metadata>(setMetaJson);
 
             // Set1のデータを収集する
-            Dictionary<string, Set1> set1Dictionary = new Dictionary<string, Set1>();
+            Dictionary<string, List<CardInfo>> tempDicstionary = new Dictionary<string, List<CardInfo>>();
             foreach (var locale in metadata.locales)
             {
                 string separator = Path.DirectorySeparatorChar.ToString();
                 string setPath = Path.GetDirectoryName(filePath) + separator + locale + separator + "data" + separator +
                                  "set1-" + locale + ".json";
+
                 string setJson = File.ReadAllText(setPath);
-                Set1 set1 = JsonConvert.DeserializeObject<Set1>(setJson);
-                set1Dictionary.Add(locale, set1);
+                List<CardInfo> cardInfos = JsonConvert.DeserializeObject<List<CardInfo>>(setJson);
+                tempDicstionary.Add(locale, cardInfos);
             }
 
-            set1s = set1Dictionary;
+            cardInfosDictionary = tempDicstionary;
+            return true;
+        }
+
+        public static bool GetCardInfos(out List<CardInfo> cardInfos, string locale)
+        {
+            GetCardInfosDictionary(out var cardInfosDictionary);
+            cardInfos = cardInfosDictionary[locale]; // TODO: エラー処理
+
             return true;
         }
     }

@@ -47,7 +47,8 @@ namespace TestRuneterraDataDragon
             string cardImageFileName = Path.GetFileName(targetCard.assets[0].gameAbsolutePath);
             string cardImageFilePath = cardImageDir + cardImageFileName;
 
-            SolePictureBox.Image = Image.FromFile(cardImageFilePath);
+            Image targetImage = Image.FromFile(cardImageFilePath);
+            FormUtil.SetImageStretched(targetImage, ClientSize, SolePictureBox);
         }
 
         private void ViewGameImage_Load(object sender, EventArgs e)
@@ -60,6 +61,11 @@ namespace TestRuneterraDataDragon
         private void ViewGameImage_FormClosed(object sender, FormClosedEventArgs e)
         {
             ((Form1)MdiParent)._selectCardInfos -= SelectCardInfos;
+        }
+
+        private void SolePictureBox_SizeChanged(object sender, EventArgs e)
+        {
+            MakeSoleImage();
         }
     }
 }

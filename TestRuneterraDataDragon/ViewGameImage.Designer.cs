@@ -40,6 +40,7 @@
             this.SolePictureBox.Size = new System.Drawing.Size(338, 341);
             this.SolePictureBox.TabIndex = 0;
             this.SolePictureBox.TabStop = false;
+            this.SolePictureBox.SizeChanged += new System.EventHandler(this.SolePictureBox_SizeChanged);
             // 
             // ViewGameImage
             // 
