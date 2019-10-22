@@ -1,4 +1,5 @@
 ﻿using BrightIdeasSoftware;
+using LoRDeckCodes;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -126,6 +127,42 @@ namespace TestRuneterraDataDragon
             {
                 cardInfos = cardInfos.Where(s => (string)propertyInfo.GetValue(s) != checkBox.Name).ToList();
             }
+        }
+
+        /// <summary>
+        /// CardInfoのプロパティを参照して表示するカラムのAspectGetterを設定する
+        /// </summary>
+        /// <param name="objectListView">処理対象のコントロール</param>
+        /// <param name="aspectName">処理対象のカラムのAspectName</param>
+        /// <param name="cardInfos">全てのカード情報</param>
+        /// <param name="propertyInfo">表示するプロパティ</param>
+        public static void SetAspectGetterByStringProperty(ObjectListView objectListView, string aspectName, List<CardInfo> cardInfos, PropertyInfo propertyInfo)
+        {
+            var NameColumn = objectListView.AllColumns.First(s => s.AspectName.Equals(aspectName));
+            NameColumn.AspectGetter = delegate (object x)
+            {
+                CardCodeAndCount ccac = (CardCodeAndCount)x;
+                CardInfo cardInfo = cardInfos.First(s => s.cardCode == ccac.CardCode);
+                return (string) propertyInfo.GetValue(cardInfo);
+            };
+        }
+
+        /// <summary>
+        /// CardInfoのプロパティを参照して表示するカラムのAspectGetterを設定する
+        /// </summary>
+        /// <param name="objectListView">処理対象のコントロール</param>
+        /// <param name="aspectName">処理対象のカラムのAspectName</param>
+        /// <param name="cardInfos">全てのカード情報</param>
+        /// <param name="propertyInfo">表示するプロパティ</param>
+        public static void SetAspectGetterByIntProperty(ObjectListView objectListView, string aspectName, List<CardInfo> cardInfos, PropertyInfo propertyInfo)
+        {
+            var NameColumn = objectListView.AllColumns.First(s => s.AspectName.Equals(aspectName));
+            NameColumn.AspectGetter = delegate (object x)
+            {
+                CardCodeAndCount ccac = (CardCodeAndCount)x;
+                CardInfo cardInfo = cardInfos.First(s => s.cardCode == ccac.CardCode);
+                return (int)propertyInfo.GetValue(cardInfo);
+            };
         }
     }
 }

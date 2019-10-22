@@ -179,6 +179,12 @@ namespace TestRuneterraDataDragon
             // サブタイプでフィルタする
             FilterBySubType(ref cardInfos);
 
+            // 収集可能性でフィルタする
+            if (OnlyCollectibleCheckBox.Checked)
+            {
+                cardInfos = cardInfos.Where(s => s.collectible == true).ToList();
+            }
+
             SoleObjectListView.SetObjects(cardInfos);
         }
 

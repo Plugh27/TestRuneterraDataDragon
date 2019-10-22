@@ -49,5 +49,12 @@ namespace TestRuneterraDataDragon
             f.MdiParent = this;
             f.Show();
         }
+
+        private void ListOfCardsDeckToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var f = new ListOfCardsDeck();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }

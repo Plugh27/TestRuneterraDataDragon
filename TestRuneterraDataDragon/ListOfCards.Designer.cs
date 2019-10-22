@@ -36,7 +36,10 @@
             this.TypeFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.SuperTypeFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.SubTypeFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.OnlyCollectibleCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.SoleObjectListView)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // SoleObjectListView
@@ -45,7 +48,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SoleObjectListView.CellEditUseWholeCell = false;
             this.SoleObjectListView.Cursor = System.Windows.Forms.Cursors.Default;
-            this.SoleObjectListView.Location = new System.Drawing.Point(12, 320);
+            this.SoleObjectListView.Location = new System.Drawing.Point(12, 396);
             this.SoleObjectListView.Name = "SoleObjectListView";
             this.SoleObjectListView.Size = new System.Drawing.Size(993, 207);
             this.SoleObjectListView.TabIndex = 0;
@@ -116,11 +119,35 @@
             this.SubTypeFlowLayoutPanel.Size = new System.Drawing.Size(304, 34);
             this.SubTypeFlowLayoutPanel.TabIndex = 7;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.flowLayoutPanel1.Controls.Add(this.OnlyCollectibleCheckBox);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 292);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(304, 34);
+            this.flowLayoutPanel1.TabIndex = 8;
+            // 
+            // OnlyCollectibleCheckBox
+            // 
+            this.OnlyCollectibleCheckBox.AutoSize = true;
+            this.OnlyCollectibleCheckBox.Checked = true;
+            this.OnlyCollectibleCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.OnlyCollectibleCheckBox.Location = new System.Drawing.Point(3, 3);
+            this.OnlyCollectibleCheckBox.Name = "OnlyCollectibleCheckBox";
+            this.OnlyCollectibleCheckBox.Size = new System.Drawing.Size(155, 16);
+            this.OnlyCollectibleCheckBox.TabIndex = 0;
+            this.OnlyCollectibleCheckBox.Text = "収集可能なカードのみ表示";
+            this.OnlyCollectibleCheckBox.UseVisualStyleBackColor = true;
+            this.OnlyCollectibleCheckBox.CheckedChanged += new System.EventHandler(this.FilterControlChanged);
+            // 
             // ListOfCards
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1017, 539);
+            this.ClientSize = new System.Drawing.Size(1017, 615);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.SubTypeFlowLayoutPanel);
             this.Controls.Add(this.SuperTypeFlowLayoutPanel);
             this.Controls.Add(this.TypeFlowLayoutPanel);
@@ -133,6 +160,8 @@
             this.Text = "ListOfCards";
             this.Load += new System.EventHandler(this.ListOfCards_Load);
             ((System.ComponentModel.ISupportInitialize)(this.SoleObjectListView)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,5 +177,7 @@
         private System.Windows.Forms.FlowLayoutPanel TypeFlowLayoutPanel;
         private System.Windows.Forms.FlowLayoutPanel SuperTypeFlowLayoutPanel;
         private System.Windows.Forms.FlowLayoutPanel SubTypeFlowLayoutPanel;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.CheckBox OnlyCollectibleCheckBox;
     }
 }

@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="CoreDataFilePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">C:\Users\Admin\Documents\DataDragon\datadragon-core-ja_jp\metadata.json</Value>
     </Setting>
     <Setting Name="SetDataFilePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">C:\Users\Admin\Documents\DataDragon\datadragon-set1-ja_jp\metadata.json</Value>
     </Setting>
   </Settings>
 </SettingsFile>

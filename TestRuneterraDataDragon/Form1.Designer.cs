@@ -36,6 +36,7 @@
             this.ListOfKeywordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Set1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GameImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ListOfCardsDeckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SoleMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,7 +62,7 @@
             // SettingToolStripMenuItem
             // 
             this.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem";
-            this.SettingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.SettingToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.SettingToolStripMenuItem.Text = "設定(&S)";
             this.SettingToolStripMenuItem.Click += new System.EventHandler(this.SettingToolStripMenuItem_Click);
             // 
@@ -70,7 +71,8 @@
             this.ViewVToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.GlobalToolStripMenuItem,
             this.Set1ToolStripMenuItem,
-            this.GameImageToolStripMenuItem});
+            this.GameImageToolStripMenuItem,
+            this.ListOfCardsDeckToolStripMenuItem});
             this.ViewVToolStripMenuItem.Name = "ViewVToolStripMenuItem";
             this.ViewVToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.ViewVToolStripMenuItem.Text = "表示(&V)";
@@ -86,7 +88,7 @@
             // ListOfKeywordsToolStripMenuItem
             // 
             this.ListOfKeywordsToolStripMenuItem.Name = "ListOfKeywordsToolStripMenuItem";
-            this.ListOfKeywordsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ListOfKeywordsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.ListOfKeywordsToolStripMenuItem.Text = "キーワード";
             this.ListOfKeywordsToolStripMenuItem.Click += new System.EventHandler(this.ListOfKeywordsToolStripMenuItem_Click);
             // 
@@ -103,6 +105,13 @@
             this.GameImageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.GameImageToolStripMenuItem.Text = "ゲーム画像";
             this.GameImageToolStripMenuItem.Click += new System.EventHandler(this.GameImageToolStripMenuItem_Click);
+            // 
+            // ListOfCardsDeckToolStripMenuItem
+            // 
+            this.ListOfCardsDeckToolStripMenuItem.Name = "ListOfCardsDeckToolStripMenuItem";
+            this.ListOfCardsDeckToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ListOfCardsDeckToolStripMenuItem.Text = "デッキカード一覧";
+            this.ListOfCardsDeckToolStripMenuItem.Click += new System.EventHandler(this.ListOfCardsDeckToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -131,6 +140,7 @@
         private System.Windows.Forms.ToolStripMenuItem ListOfKeywordsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Set1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem GameImageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ListOfCardsDeckToolStripMenuItem;
     }
 }
 

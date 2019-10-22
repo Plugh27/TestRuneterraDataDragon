@@ -25,7 +25,7 @@ namespace TestRuneterraDataDragon.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Admin\\Documents\\DataDragon\\datadragon-core-ja_jp\\metadata.json")]
         public string CoreDataFilePath {
             get {
                 return ((string)(this["CoreDataFilePath"]));
@@ -37,7 +37,7 @@ namespace TestRuneterraDataDragon.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Admin\\Documents\\DataDragon\\datadragon-set1-ja_jp\\metadata.json")]
         public string SetDataFilePath {
             get {
                 return ((string)(this["SetDataFilePath"]));

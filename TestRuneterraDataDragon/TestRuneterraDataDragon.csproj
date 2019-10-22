@@ -68,6 +68,12 @@
     <Compile Include="ListOfCards.Designer.cs">
       <DependentUpon>ListOfCards.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListOfCardsDeck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListOfCardsDeck.Designer.cs">
+      <DependentUpon>ListOfCardsDeck.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListOfKeywords.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,11 +95,15 @@
     <Compile Include="ViewGameImage.Designer.cs">
       <DependentUpon>ViewGameImage.cs</DependentUpon>
     </Compile>
+    <Compile Include="WrapperUtil.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListOfCards.resx">
       <DependentUpon>ListOfCards.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListOfCardsDeck.resx">
+      <DependentUpon>ListOfCardsDeck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListOfKeywords.resx">
       <DependentUpon>ListOfKeywords.cs</DependentUpon>
@@ -126,6 +136,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LoRDeckCodes\LoRDeckCodes.csproj">
+      <Project>{aa299ca7-63e9-4ce3-a6c5-7b3defc08a2a}</Project>
+      <Name>LoRDeckCodes</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
