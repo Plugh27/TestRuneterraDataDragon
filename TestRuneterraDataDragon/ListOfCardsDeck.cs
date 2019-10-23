@@ -67,26 +67,24 @@ namespace TestRuneterraDataDragon
             // カラムの諸設定を行う
             var nameList = new List<string>
             {
-                "CardCode",
-                "Region",
                 "Name",
                 "Cost",
                 "CardType",
+                "Region",
                 "Count"
             };
             var widthList = new List<int>
             {
-                100,
-                50,
-                80,
+                120,
                 20,
                 80,
+                50,
                 80
             };
             FormUtil.InitColumns(nameList, widthList, SoleObjectListView);
 
             // ハイパーリンクの設定
-            FormUtil.SetHyperlinkOfColumn(SoleObjectListView, "CardCode", true);
+            FormUtil.SetHyperlinkOfColumn(SoleObjectListView, "Name", true);
 
             Util.GetCardInfos(out var cardInfos, Util.JapaneseCode);
 
@@ -133,6 +131,8 @@ namespace TestRuneterraDataDragon
         private void MakeSoleList()
         {
             SoleObjectListView.SetObjects(_cardCodeAndCounts);
+
+            ((Form1)MdiParent)._updateCardsDeck?.Invoke(_cardCodeAndCounts); // TODO: 重そう
         }
 
         private void ImportFromClipboardButton_Click(object sender, EventArgs e)
@@ -171,6 +171,14 @@ namespace TestRuneterraDataDragon
 
         private void SoleObjectListView_HyperlinkClicked(object sender, BrightIdeasSoftware.HyperlinkClickedEventArgs e)
         {
+            // クリックされた項目（CardCodeAndCount）と、それに相当するCardInfoを取得する
+            CardCodeAndCount cardCodeAndCount = (CardCodeAndCount)e.Item.RowObject;
+            Util.GetCardInfos(out var cardInfos, Util.JapaneseCode); // TODO: 多言語対応
+            CardInfo cardInfo = Util.GetCardInfoFromCardCodeAndCount(cardInfos ,cardCodeAndCount);
+
+            // デッキ一覧でカードが選択された時の処理を実行する
+            ((Form1) MdiParent)._selectCardInfosInCardsDeck?.Invoke(new List<CardInfo> {cardInfo});
+
             // カード削除しないなら何もせず抜ける
             if (RemoveCardDisableRadioButton.Checked)
             {
@@ -179,8 +187,6 @@ namespace TestRuneterraDataDragon
             }
 
             // カード削除する
-            CardCodeAndCount cardCodeAndCount = (CardCodeAndCount) e.Item.RowObject;
-
             CardCodeAndCount targetCardCodeAndCount =
                 _cardCodeAndCounts.FirstOrDefault(s => s.CardCode == cardCodeAndCount.CardCode);
             if (targetCardCodeAndCount == null)

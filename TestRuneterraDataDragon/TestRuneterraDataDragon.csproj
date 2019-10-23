@@ -89,6 +89,12 @@
       <DependentUpon>Setting.cs</DependentUpon>
     </Compile>
     <Compile Include="Util.cs" />
+    <Compile Include="ViewCardsDeckImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewCardsDeckImage.Designer.cs">
+      <DependentUpon>ViewCardsDeckImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewGameImage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </Compile>
     <EmbeddedResource Include="Setting.resx">
       <DependentUpon>Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewCardsDeckImage.resx">
+      <DependentUpon>ViewCardsDeckImage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewGameImage.resx">
       <DependentUpon>ViewGameImage.cs</DependentUpon>

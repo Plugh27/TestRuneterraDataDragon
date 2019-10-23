@@ -53,6 +53,17 @@ namespace TestRuneterraDataDragon
             }
         }
 
+        public static Image GetStretchedImage(Image targetImage, int resizeWidth, int resizeHeight)
+        {
+            // 伸縮後の画像を作成
+            var resizeBitmap = new Bitmap(resizeWidth, resizeHeight);
+            var g = Graphics.FromImage(resizeBitmap);
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            g.DrawImage(targetImage, 0, 0, resizeWidth, resizeHeight);
+
+            return resizeBitmap;
+        }
+
         /// <summary>
         /// 指定されたSizeの幅を基準に画像を伸縮し、PictureBoxに設定する。
         /// </summary>
@@ -67,10 +78,7 @@ namespace TestRuneterraDataDragon
             var resizeHeight = (int)(imageSize.Height * (double)resizeWidth / imageSize.Width);
 
             // 伸縮後の画像を作成
-            var resizeBmp = new Bitmap(resizeWidth, resizeHeight);
-            var g = Graphics.FromImage(resizeBmp);
-            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            g.DrawImage(targetImage, 0, 0, resizeWidth, resizeHeight);
+            var resizeBmp = GetStretchedImage(targetImage, resizeWidth, resizeHeight);
 
             // 画像コントロールのサイズを調整
             targetPictureBox.Width = resizeBmp.Width;

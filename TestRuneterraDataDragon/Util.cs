@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LoRDeckCodes;
 using TestRuneterraDataDragon.JsonPattern;
 
 namespace TestRuneterraDataDragon
@@ -78,6 +79,42 @@ namespace TestRuneterraDataDragon
             cardInfos = cardInfosDictionary[locale]; // TODO: エラー処理
 
             return true;
+        }
+
+        public static CardInfo GetCardInfoFromCardCodeAndCount(List<CardInfo> cardInfos,
+            CardCodeAndCount cardCodeAndCount)
+        {
+            CardInfo cardInfo = cardInfos.FirstOrDefault(s => s.cardCode == cardCodeAndCount.CardCode);
+            if (cardInfo == null)
+            {
+                // TODO: アサート
+                return null;
+            }
+
+            return cardInfo;
+        }
+
+        public static CardCodeAndCount GetCardCodeAndCountFromCardInfo(List<CardCodeAndCount> cardCodeAndCounts,
+            CardInfo cardInfo)
+        {
+            CardCodeAndCount cardCodeAndCount = cardCodeAndCounts.FirstOrDefault(s => s.CardCode == cardInfo.cardCode);
+            if (cardCodeAndCount == null)
+            {
+                // TODO: アサート
+                return null;
+            }
+
+            return cardCodeAndCount;
+        }
+
+        public static string GetImageFilePath(CardInfo cardInfo, string locale)
+        {
+            string metaFileDir = Path.GetDirectoryName(Properties.Settings.Default.SetDataFilePath);
+            string separator = Path.DirectorySeparatorChar.ToString();
+            string cardImageDir = metaFileDir + separator + locale + separator + "img" + separator + "cards" + separator;
+
+            string cardImageFileName = Path.GetFileName(cardInfo.assets[0].gameAbsolutePath);
+            return cardImageDir + cardImageFileName;
         }
     }
 }

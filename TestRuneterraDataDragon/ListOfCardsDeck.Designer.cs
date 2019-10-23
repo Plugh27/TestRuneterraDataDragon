@@ -31,8 +31,8 @@
             this.SoleObjectListView = new BrightIdeasSoftware.ObjectListView();
             this.ImportFromClipboardButton = new System.Windows.Forms.Button();
             this.AddCardGroupBox = new System.Windows.Forms.GroupBox();
-            this.AddCardEnableRadioButton = new System.Windows.Forms.RadioButton();
             this.AddCardDisableRadioButton = new System.Windows.Forms.RadioButton();
+            this.AddCardEnableRadioButton = new System.Windows.Forms.RadioButton();
             this.ExportToClipboardButton = new System.Windows.Forms.Button();
             this.RemoveCardGroupBox = new System.Windows.Forms.GroupBox();
             this.RemoveCardDisableRadioButton = new System.Windows.Forms.RadioButton();
@@ -44,6 +44,9 @@
             // 
             // SoleObjectListView
             // 
+            this.SoleObjectListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SoleObjectListView.CellEditUseWholeCell = false;
             this.SoleObjectListView.Cursor = System.Windows.Forms.Cursors.Default;
             this.SoleObjectListView.Location = new System.Drawing.Point(12, 164);
@@ -75,6 +78,16 @@
             this.AddCardGroupBox.TabStop = false;
             this.AddCardGroupBox.Text = "カード一覧でクリックされたカードを追加";
             // 
+            // AddCardDisableRadioButton
+            // 
+            this.AddCardDisableRadioButton.AutoSize = true;
+            this.AddCardDisableRadioButton.Location = new System.Drawing.Point(89, 18);
+            this.AddCardDisableRadioButton.Name = "AddCardDisableRadioButton";
+            this.AddCardDisableRadioButton.Size = new System.Drawing.Size(52, 16);
+            this.AddCardDisableRadioButton.TabIndex = 3;
+            this.AddCardDisableRadioButton.Text = "しない";
+            this.AddCardDisableRadioButton.UseVisualStyleBackColor = true;
+            // 
             // AddCardEnableRadioButton
             // 
             this.AddCardEnableRadioButton.AutoSize = true;
@@ -86,16 +99,6 @@
             this.AddCardEnableRadioButton.TabStop = true;
             this.AddCardEnableRadioButton.Text = "する";
             this.AddCardEnableRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // AddCardDisableRadioButton
-            // 
-            this.AddCardDisableRadioButton.AutoSize = true;
-            this.AddCardDisableRadioButton.Location = new System.Drawing.Point(89, 18);
-            this.AddCardDisableRadioButton.Name = "AddCardDisableRadioButton";
-            this.AddCardDisableRadioButton.Size = new System.Drawing.Size(52, 16);
-            this.AddCardDisableRadioButton.TabIndex = 3;
-            this.AddCardDisableRadioButton.Text = "しない";
-            this.AddCardDisableRadioButton.UseVisualStyleBackColor = true;
             // 
             // ExportToClipboardButton
             // 

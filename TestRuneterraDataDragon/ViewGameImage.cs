@@ -39,13 +39,7 @@ namespace TestRuneterraDataDragon
             var targetCard = targetCardInfos.First();
 
             // カードのファイルパスを求める
-            string metaFileDir = Path.GetDirectoryName(Properties.Settings.Default.SetDataFilePath);
-            string locale = "ja_jp"; // TODO: 切り替えられるようにする
-            string separator = Path.DirectorySeparatorChar.ToString();
-            string cardImageDir = metaFileDir + separator + locale + separator + "img" + separator + "cards" + separator;
-
-            string cardImageFileName = Path.GetFileName(targetCard.assets[0].gameAbsolutePath);
-            string cardImageFilePath = cardImageDir + cardImageFileName;
+            string cardImageFilePath = Util.GetImageFilePath(targetCard, Util.JapaneseCode);
 
             Image targetImage = Image.FromFile(cardImageFilePath);
             FormUtil.SetImageStretched(targetImage, ClientSize, SolePictureBox);
@@ -56,11 +50,13 @@ namespace TestRuneterraDataDragon
             _selectedCardInfos = new List<CardInfo>();
 
             ((Form1) MdiParent)._selectCardInfos += SelectCardInfos;
+            ((Form1) MdiParent)._selectCardInfosInCardsDeck += SelectCardInfos;
         }
 
         private void ViewGameImage_FormClosed(object sender, FormClosedEventArgs e)
         {
             ((Form1)MdiParent)._selectCardInfos -= SelectCardInfos;
+            ((Form1) MdiParent)._selectCardInfosInCardsDeck -= SelectCardInfos;
         }
 
         private void SolePictureBox_SizeChanged(object sender, EventArgs e)

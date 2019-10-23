@@ -44,13 +44,14 @@
             // 
             // SoleObjectListView
             // 
-            this.SoleObjectListView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.SoleObjectListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SoleObjectListView.CellEditUseWholeCell = false;
             this.SoleObjectListView.Cursor = System.Windows.Forms.Cursors.Default;
-            this.SoleObjectListView.Location = new System.Drawing.Point(12, 396);
+            this.SoleObjectListView.Location = new System.Drawing.Point(12, 332);
             this.SoleObjectListView.Name = "SoleObjectListView";
-            this.SoleObjectListView.Size = new System.Drawing.Size(993, 207);
+            this.SoleObjectListView.Size = new System.Drawing.Size(993, 271);
             this.SoleObjectListView.TabIndex = 0;
             this.SoleObjectListView.UseCompatibleStateImageBehavior = false;
             this.SoleObjectListView.View = System.Windows.Forms.View.Details;

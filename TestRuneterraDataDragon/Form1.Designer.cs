@@ -37,6 +37,7 @@
             this.Set1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GameImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ListOfCardsDeckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CardsDeckImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SoleMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,7 +73,8 @@
             this.GlobalToolStripMenuItem,
             this.Set1ToolStripMenuItem,
             this.GameImageToolStripMenuItem,
-            this.ListOfCardsDeckToolStripMenuItem});
+            this.ListOfCardsDeckToolStripMenuItem,
+            this.CardsDeckImageToolStripMenuItem});
             this.ViewVToolStripMenuItem.Name = "ViewVToolStripMenuItem";
             this.ViewVToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.ViewVToolStripMenuItem.Text = "表示(&V)";
@@ -113,6 +115,13 @@
             this.ListOfCardsDeckToolStripMenuItem.Text = "デッキカード一覧";
             this.ListOfCardsDeckToolStripMenuItem.Click += new System.EventHandler(this.ListOfCardsDeckToolStripMenuItem_Click);
             // 
+            // CardsDeckImageToolStripMenuItem
+            // 
+            this.CardsDeckImageToolStripMenuItem.Name = "CardsDeckImageToolStripMenuItem";
+            this.CardsDeckImageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CardsDeckImageToolStripMenuItem.Text = "デッキ画像";
+            this.CardsDeckImageToolStripMenuItem.Click += new System.EventHandler(this.CardsDeckImageToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -141,6 +150,7 @@
         private System.Windows.Forms.ToolStripMenuItem Set1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem GameImageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ListOfCardsDeckToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CardsDeckImageToolStripMenuItem;
     }
 }
 
