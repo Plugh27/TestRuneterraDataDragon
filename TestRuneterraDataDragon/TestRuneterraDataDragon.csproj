@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DialogInputText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogInputText.Designer.cs">
+      <DependentUpon>DialogInputText.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +65,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUtil.cs" />
+    <Compile Include="JsonPattern\DeckAndName.cs" />
     <Compile Include="JsonPattern\Global.cs" />
     <Compile Include="JsonPattern\Metadata.cs" />
     <Compile Include="JsonPattern\Set1.cs" />
@@ -102,6 +109,9 @@
       <DependentUpon>ViewGameImage.cs</DependentUpon>
     </Compile>
     <Compile Include="WrapperUtil.cs" />
+    <EmbeddedResource Include="DialogInputText.resx">
+      <DependentUpon>DialogInputText.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

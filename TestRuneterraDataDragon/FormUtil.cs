@@ -172,5 +172,19 @@ namespace TestRuneterraDataDragon
                 return (int)propertyInfo.GetValue(cardInfo);
             };
         }
+
+        /// <summary>
+        /// ListBoxのDataSourceの変更を画面に反映させる
+        /// </summary>
+        /// <param name="listBox">処理対象のリストボックス</param>
+        /// <param name="dataSource">設定するデータソース</param>
+        /// <param name="displayMember">表示メンバ</param>
+        public static void RefreshListBox(ListBox listBox, object dataSource, string displayMember)
+        {
+            // nullを代入しないと、変更が画面に反映されない
+            listBox.DataSource = null;
+            listBox.DisplayMember = displayMember;
+            listBox.DataSource = dataSource;
+        }
     }
 }

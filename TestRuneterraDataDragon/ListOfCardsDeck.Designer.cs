@@ -37,6 +37,11 @@
             this.RemoveCardGroupBox = new System.Windows.Forms.GroupBox();
             this.RemoveCardDisableRadioButton = new System.Windows.Forms.RadioButton();
             this.RemoveCardEnableRadioButton = new System.Windows.Forms.RadioButton();
+            this.DecksListBox = new System.Windows.Forms.ListBox();
+            this.ChangeDeckNameButton = new System.Windows.Forms.Button();
+            this.SaveAsButton = new System.Windows.Forms.Button();
+            this.NewDeckButton = new System.Windows.Forms.Button();
+            this.DeleteDeckButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SoleObjectListView)).BeginInit();
             this.AddCardGroupBox.SuspendLayout();
             this.RemoveCardGroupBox.SuspendLayout();
@@ -49,9 +54,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SoleObjectListView.CellEditUseWholeCell = false;
             this.SoleObjectListView.Cursor = System.Windows.Forms.Cursors.Default;
-            this.SoleObjectListView.Location = new System.Drawing.Point(12, 164);
+            this.SoleObjectListView.Location = new System.Drawing.Point(12, 247);
             this.SoleObjectListView.Name = "SoleObjectListView";
-            this.SoleObjectListView.Size = new System.Drawing.Size(776, 274);
+            this.SoleObjectListView.Size = new System.Drawing.Size(776, 284);
             this.SoleObjectListView.TabIndex = 0;
             this.SoleObjectListView.UseCompatibleStateImageBehavior = false;
             this.SoleObjectListView.View = System.Windows.Forms.View.Details;
@@ -143,11 +148,66 @@
             this.RemoveCardEnableRadioButton.Text = "する";
             this.RemoveCardEnableRadioButton.UseVisualStyleBackColor = true;
             // 
+            // DecksListBox
+            // 
+            this.DecksListBox.FormattingEnabled = true;
+            this.DecksListBox.ItemHeight = 12;
+            this.DecksListBox.Location = new System.Drawing.Point(519, 12);
+            this.DecksListBox.Name = "DecksListBox";
+            this.DecksListBox.Size = new System.Drawing.Size(269, 88);
+            this.DecksListBox.TabIndex = 5;
+            this.DecksListBox.SelectedIndexChanged += new System.EventHandler(this.DecksListBox_SelectedIndexChanged);
+            // 
+            // ChangeDeckNameButton
+            // 
+            this.ChangeDeckNameButton.Location = new System.Drawing.Point(519, 109);
+            this.ChangeDeckNameButton.Name = "ChangeDeckNameButton";
+            this.ChangeDeckNameButton.Size = new System.Drawing.Size(269, 23);
+            this.ChangeDeckNameButton.TabIndex = 6;
+            this.ChangeDeckNameButton.Text = "デッキの名前を変更";
+            this.ChangeDeckNameButton.UseVisualStyleBackColor = true;
+            this.ChangeDeckNameButton.Click += new System.EventHandler(this.ChangeDeckNameButton_Click);
+            // 
+            // SaveAsButton
+            // 
+            this.SaveAsButton.Location = new System.Drawing.Point(655, 138);
+            this.SaveAsButton.Name = "SaveAsButton";
+            this.SaveAsButton.Size = new System.Drawing.Size(133, 23);
+            this.SaveAsButton.TabIndex = 8;
+            this.SaveAsButton.Text = "別名で保存";
+            this.SaveAsButton.UseVisualStyleBackColor = true;
+            this.SaveAsButton.Click += new System.EventHandler(this.SaveAsButton_Click);
+            // 
+            // NewDeckButton
+            // 
+            this.NewDeckButton.Location = new System.Drawing.Point(519, 167);
+            this.NewDeckButton.Name = "NewDeckButton";
+            this.NewDeckButton.Size = new System.Drawing.Size(269, 23);
+            this.NewDeckButton.TabIndex = 9;
+            this.NewDeckButton.Text = "新規";
+            this.NewDeckButton.UseVisualStyleBackColor = true;
+            this.NewDeckButton.Click += new System.EventHandler(this.NewDeckButton_Click);
+            // 
+            // DeleteDeckButton
+            // 
+            this.DeleteDeckButton.Location = new System.Drawing.Point(519, 196);
+            this.DeleteDeckButton.Name = "DeleteDeckButton";
+            this.DeleteDeckButton.Size = new System.Drawing.Size(269, 23);
+            this.DeleteDeckButton.TabIndex = 10;
+            this.DeleteDeckButton.Text = "削除";
+            this.DeleteDeckButton.UseVisualStyleBackColor = true;
+            this.DeleteDeckButton.Click += new System.EventHandler(this.DeleteDeckButton_Click);
+            // 
             // ListOfCardsDeck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 543);
+            this.Controls.Add(this.DeleteDeckButton);
+            this.Controls.Add(this.NewDeckButton);
+            this.Controls.Add(this.SaveAsButton);
+            this.Controls.Add(this.ChangeDeckNameButton);
+            this.Controls.Add(this.DecksListBox);
             this.Controls.Add(this.RemoveCardGroupBox);
             this.Controls.Add(this.ExportToClipboardButton);
             this.Controls.Add(this.AddCardGroupBox);
@@ -177,5 +237,10 @@
         private System.Windows.Forms.GroupBox RemoveCardGroupBox;
         private System.Windows.Forms.RadioButton RemoveCardDisableRadioButton;
         private System.Windows.Forms.RadioButton RemoveCardEnableRadioButton;
+        private System.Windows.Forms.ListBox DecksListBox;
+        private System.Windows.Forms.Button ChangeDeckNameButton;
+        private System.Windows.Forms.Button SaveAsButton;
+        private System.Windows.Forms.Button NewDeckButton;
+        private System.Windows.Forms.Button DeleteDeckButton;
     }
 }

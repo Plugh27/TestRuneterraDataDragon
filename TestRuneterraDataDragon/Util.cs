@@ -15,6 +15,8 @@ namespace TestRuneterraDataDragon
         public static string JapaneseCode = "ja_jp";
         public static string EnglishCode = "en_us";
 
+        private static string _userDecksFilePath = "UserDecks.json";
+
         public static bool GetGlobalData(out Dictionary<string, Global> globals)
         {
             // TODO: 毎回アクセスするのではなく、既に取得していたらその内容を返すように
@@ -115,6 +117,25 @@ namespace TestRuneterraDataDragon
 
             string cardImageFileName = Path.GetFileName(cardInfo.assets[0].gameAbsolutePath);
             return cardImageDir + cardImageFileName;
+        }
+
+        public static List<DeckAndName> GetDeckAndNameList() // TODO: 名前をファイル由来っぽく
+        {
+            // ファイルが存在しなければ空のリストを返す
+            if (!File.Exists(_userDecksFilePath))
+            {
+                return new List<DeckAndName>();
+            }
+
+            // ファイルの情報をリストに変換して返す
+            var json = File.ReadAllText(_userDecksFilePath);
+            return JsonConvert.DeserializeObject<List<DeckAndName>>(json);
+        }
+
+        public static void SetDeckAndNameList(List<DeckAndName> deckAndNameList) // TODO: 名前をファイル由来っぽく
+        {
+            var json = JsonConvert.SerializeObject(deckAndNameList, Formatting.Indented);
+            File.WriteAllText(_userDecksFilePath, json);
         }
     }
 }
