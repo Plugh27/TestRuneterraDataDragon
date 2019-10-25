@@ -74,5 +74,12 @@ namespace TestRuneterraDataDragon
             f.MdiParent = this;
             f.Show();
         }
+
+        private void UserInputDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var f = new ViewUserInputData();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }

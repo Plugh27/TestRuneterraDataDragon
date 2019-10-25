@@ -63,5 +63,10 @@ namespace TestRuneterraDataDragon
         {
             MakeSoleImage();
         }
+
+        private void CopyToClipboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetImage(SolePictureBox.Image);
+        }
     }
 }

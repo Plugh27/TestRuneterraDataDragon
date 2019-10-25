@@ -129,22 +129,22 @@
             // RemoveCardDisableRadioButton
             // 
             this.RemoveCardDisableRadioButton.AutoSize = true;
+            this.RemoveCardDisableRadioButton.Checked = true;
             this.RemoveCardDisableRadioButton.Location = new System.Drawing.Point(89, 18);
             this.RemoveCardDisableRadioButton.Name = "RemoveCardDisableRadioButton";
             this.RemoveCardDisableRadioButton.Size = new System.Drawing.Size(52, 16);
             this.RemoveCardDisableRadioButton.TabIndex = 3;
+            this.RemoveCardDisableRadioButton.TabStop = true;
             this.RemoveCardDisableRadioButton.Text = "しない";
             this.RemoveCardDisableRadioButton.UseVisualStyleBackColor = true;
             // 
             // RemoveCardEnableRadioButton
             // 
             this.RemoveCardEnableRadioButton.AutoSize = true;
-            this.RemoveCardEnableRadioButton.Checked = true;
             this.RemoveCardEnableRadioButton.Location = new System.Drawing.Point(6, 18);
             this.RemoveCardEnableRadioButton.Name = "RemoveCardEnableRadioButton";
             this.RemoveCardEnableRadioButton.Size = new System.Drawing.Size(42, 16);
             this.RemoveCardEnableRadioButton.TabIndex = 0;
-            this.RemoveCardEnableRadioButton.TabStop = true;
             this.RemoveCardEnableRadioButton.Text = "する";
             this.RemoveCardEnableRadioButton.UseVisualStyleBackColor = true;
             // 

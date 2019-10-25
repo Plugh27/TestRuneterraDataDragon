@@ -16,6 +16,7 @@ namespace TestRuneterraDataDragon
         public static string EnglishCode = "en_us";
 
         private static string _userDecksFilePath = "UserDecks.json";
+        private static string _userInputDataFilePath = "UserInputData.json";
 
         public static bool GetGlobalData(out Dictionary<string, Global> globals)
         {
@@ -136,6 +137,25 @@ namespace TestRuneterraDataDragon
         {
             var json = JsonConvert.SerializeObject(deckAndNameList, Formatting.Indented);
             File.WriteAllText(_userDecksFilePath, json);
+        }
+
+        public static List<UserInputData> GetUserInputDatasFromJsonFile()
+        {
+            // ファイルが存在しなければ空のリストを返す
+            if (!File.Exists(_userInputDataFilePath))
+            {
+                return new List<UserInputData>();
+            }
+
+            // ファイルの情報をリストに変換して返す
+            var json = File.ReadAllText(_userInputDataFilePath);
+            return JsonConvert.DeserializeObject<List<UserInputData>>(json);
+        }
+
+        public static void SetupUserInputDatasToJsonFile(List<UserInputData> userInputDatas)
+        {
+            var json = JsonConvert.SerializeObject(userInputDatas, Formatting.Indented);
+            File.WriteAllText(_userInputDataFilePath, json);
         }
     }
 }
