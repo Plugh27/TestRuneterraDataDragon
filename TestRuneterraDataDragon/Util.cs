@@ -12,8 +12,11 @@ namespace TestRuneterraDataDragon
 {
     internal class Util
     {
-        public static string JapaneseCode = "ja_jp";
-        public static string EnglishCode = "en_us";
+        public static readonly string JapaneseCode = "ja_jp";
+        public static readonly string EnglishCode = "en_us";
+
+        public static readonly int RawCardWidth = 680;
+        public static readonly int RawCardHeight = 1024;
 
         private static string _userDecksFilePath = "UserDecks.json";
         private static string _userInputDataFilePath = "UserInputData.json";

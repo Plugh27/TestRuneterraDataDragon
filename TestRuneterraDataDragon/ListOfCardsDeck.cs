@@ -77,11 +77,11 @@ namespace TestRuneterraDataDragon
             // カラムの諸設定を行う
             var nameList = new List<string>
             {
-                "Name",
-                "Cost",
-                "CardType",
-                "Region",
-                "Count"
+                "cardInfo.name",
+                "cardInfo.cost",
+                "cardInfo.cardType",
+                "cardInfo.region",
+                "cardCodeAndCount.Count"
             };
             var widthList = new List<int>
             {
@@ -94,27 +94,17 @@ namespace TestRuneterraDataDragon
             FormUtil.InitColumns(nameList, widthList, SoleObjectListView);
 
             // ハイパーリンクの設定
-            FormUtil.SetHyperlinkOfColumn(SoleObjectListView, "Name", true);
+            FormUtil.SetHyperlinkOfColumn(SoleObjectListView, "cardInfo.name", true);
 
             Util.GetCardInfos(out var cardInfos, Util.JapaneseCode);
 
             // カード情報の表示方法を指定
 
-            // カードコードを元に、カードの各種情報を表示する設定をする
-            FormUtil.SetAspectGetterByStringProperty(SoleObjectListView, "Region", cardInfos,
-                typeof(CardInfo).GetProperty("region"));
-
-            FormUtil.SetAspectGetterByStringProperty(SoleObjectListView, "Name", cardInfos,
-                typeof(CardInfo).GetProperty("name"));
-
-            FormUtil.SetAspectGetterByIntProperty(SoleObjectListView, "Cost", cardInfos,
-                typeof(CardInfo).GetProperty("cost"));
-
-            var CardTypeColumn = SoleObjectListView.AllColumns.First(s => s.AspectName.Equals("CardType"));
+            var CardTypeColumn = SoleObjectListView.AllColumns.First(s => s.AspectName.Equals("cardInfo.cardType"));
             CardTypeColumn.AspectGetter = delegate(object x)
             {
                 // TODO: typeRefなどが無いため多言語対応出来る見込みが全然ない
-                CardCodeAndCount ccac = (CardCodeAndCount)x;
+                CardCodeAndCount ccac = ((CardDeckDetail)x).cardCodeAndCount;
                 CardInfo cardInfo = cardInfos.First(s => s.cardCode == ccac.CardCode);
                 if (cardInfo.type == "スペル")
                 {
@@ -144,9 +134,60 @@ namespace TestRuneterraDataDragon
             ((Form1)MdiParent)._selectCardInfos += SelectCardInfos;
         }
 
+        private void ListOfCardsDeck_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ((Form1)MdiParent)._selectCardInfos -= SelectCardInfos;
+
+            SaveUserDecks();
+        }
+
         private void MakeSoleList()
         {
-            SoleObjectListView.SetObjects(_editedDeck);
+            //
+            Util.GetCardInfos(out var allCardInfos, Util.JapaneseCode);
+            List<CardDeckDetail> cardDeckDetails = new List<CardDeckDetail>();
+            foreach (CardCodeAndCount cardCodeAndCount in _editedDeck)
+            {
+                cardDeckDetails.Add(new CardDeckDetail(allCardInfos, cardCodeAndCount));
+            }
+
+            // チャンピオンの枚数を数えて表示
+            int championCount = 0;
+            cardDeckDetails.Where(s => s.cardInfo.supertype == "チャンピオン").ToList()
+                .ForEach(s => championCount += s.cardCodeAndCount.Count);
+
+            ChampionCountLabel.Text = "チャンピオン: " + championCount.ToString() + " / 6";
+
+            // ユニットの枚数を数えて表示
+            int unitCount = 0;
+            cardDeckDetails.Where(s => s.cardInfo.type == "ユニット").ToList()
+                .ForEach(s => unitCount += s.cardCodeAndCount.Count);
+
+            UnitCountLabel.Text = "ユニット（チャンピオン含む）: " + unitCount;
+
+            // スペルの枚数を数えて表示
+            int spellCount = 0;
+            cardDeckDetails.Where(s => s.cardInfo.type == "スペル").ToList()
+                .ForEach(s => spellCount += s.cardCodeAndCount.Count);
+
+            SpellCountLabel.Text = "スペル: " + spellCount;
+
+            // 地域を表示
+            StringBuilder regionStringBuilder = new StringBuilder();
+            regionStringBuilder.Append("地域: ");
+            cardDeckDetails.GroupBy(s => s.cardInfo.regionRef).Select(s => s.First()).ToList()
+                .ForEach(s => regionStringBuilder.Append(s.cardInfo.region + " "));
+
+            RegionListLabel.Text = regionStringBuilder.ToString();
+
+            // デッキの枚数を数えて表示
+            int cardsDeckCount = 0;
+            cardDeckDetails.ForEach(s => cardsDeckCount += s.cardCodeAndCount.Count);
+
+            CardsDeckCountLabel.Text = "カード枚数: " + cardsDeckCount + " / 40";
+
+            // リストに表示するオブジェクトを設定
+            SoleObjectListView.SetObjects(cardDeckDetails);
 
             ((Form1)MdiParent)._updateCardsDeck?.Invoke(_editedDeck); // TODO: 処理が重そう
         }
@@ -176,13 +217,6 @@ namespace TestRuneterraDataDragon
             MakeSoleList();
         }
 
-        private void ListOfCardsDeck_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            ((Form1)MdiParent)._selectCardInfos -= SelectCardInfos;
-
-            SaveUserDecks();
-        }
-
         private void SaveUserDecks()
         {
             // TODO: 今リストに表示しているデッキの変更を反映する
@@ -204,12 +238,10 @@ namespace TestRuneterraDataDragon
         private void SoleObjectListView_HyperlinkClicked(object sender, BrightIdeasSoftware.HyperlinkClickedEventArgs e)
         {
             // クリックされた項目（CardCodeAndCount）と、それに相当するCardInfoを取得する
-            CardCodeAndCount cardCodeAndCount = (CardCodeAndCount)e.Item.RowObject;
-            Util.GetCardInfos(out var cardInfos, Util.JapaneseCode); // TODO: 多言語対応
-            CardInfo cardInfo = Util.GetCardInfoFromCardCodeAndCount(cardInfos ,cardCodeAndCount);
+            CardDeckDetail cardDeckDetail = (CardDeckDetail) e.Item.RowObject;
 
             // デッキ一覧でカードが選択された時の処理を実行する
-            ((Form1) MdiParent)._selectCardInfosInCardsDeck?.Invoke(new List<CardInfo> {cardInfo});
+            ((Form1) MdiParent)._selectCardInfosInCardsDeck?.Invoke(new List<CardInfo> {cardDeckDetail.cardInfo});
 
             // カード削除しないなら何もせず抜ける
             if (RemoveCardDisableRadioButton.Checked)
@@ -220,7 +252,7 @@ namespace TestRuneterraDataDragon
 
             // カード削除する
             CardCodeAndCount targetCardCodeAndCount =
-                _editedDeck.FirstOrDefault(s => s.CardCode == cardCodeAndCount.CardCode);
+                _editedDeck.FirstOrDefault(s => s.CardCode == cardDeckDetail.cardCodeAndCount.CardCode);
             if (targetCardCodeAndCount == null)
             {
                 return; // TODO: エラー処理方法検討
@@ -324,6 +356,25 @@ namespace TestRuneterraDataDragon
             _deckAndNameList.Remove(deckAndName);
             FormUtil.RefreshListBox(DecksListBox, _deckAndNameList, "name");
 
+        }
+
+        /// <summary>
+        /// CardCodeAndCountとCardInfoの両方の情報を持つクラス
+        /// </summary>
+        class CardDeckDetail
+        {
+            public CardCodeAndCount cardCodeAndCount { get; set; }
+            public CardInfo cardInfo { get; set; }
+
+            public CardDeckDetail(List<CardInfo> allCardInfos, CardCodeAndCount cardCodeAndCount)
+            {
+                this.cardCodeAndCount = cardCodeAndCount;
+                cardInfo = allCardInfos.FirstOrDefault(s => s.cardCode == cardCodeAndCount.CardCode);
+                if (cardInfo == null)
+                {
+                    // TODO: エラーログなど
+                }
+            }
         }
     }
 }

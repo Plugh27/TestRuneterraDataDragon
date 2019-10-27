@@ -42,21 +42,34 @@
             this.SaveAsButton = new System.Windows.Forms.Button();
             this.NewDeckButton = new System.Windows.Forms.Button();
             this.DeleteDeckButton = new System.Windows.Forms.Button();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.SpellCountLabel = new System.Windows.Forms.Label();
+            this.UnitCountLabel = new System.Windows.Forms.Label();
+            this.CardsDeckCountLabel = new System.Windows.Forms.Label();
+            this.ChampionCountLabel = new System.Windows.Forms.Label();
+            this.RegionListLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.SoleObjectListView)).BeginInit();
             this.AddCardGroupBox.SuspendLayout();
             this.RemoveCardGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
             // SoleObjectListView
             // 
-            this.SoleObjectListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.SoleObjectListView.CellEditUseWholeCell = false;
             this.SoleObjectListView.Cursor = System.Windows.Forms.Cursors.Default;
-            this.SoleObjectListView.Location = new System.Drawing.Point(12, 247);
+            this.SoleObjectListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SoleObjectListView.Location = new System.Drawing.Point(0, 0);
             this.SoleObjectListView.Name = "SoleObjectListView";
-            this.SoleObjectListView.Size = new System.Drawing.Size(776, 284);
+            this.SoleObjectListView.Size = new System.Drawing.Size(601, 305);
             this.SoleObjectListView.TabIndex = 0;
             this.SoleObjectListView.UseCompatibleStateImageBehavior = false;
             this.SoleObjectListView.View = System.Windows.Forms.View.Details;
@@ -64,9 +77,9 @@
             // 
             // ImportFromClipboardButton
             // 
-            this.ImportFromClipboardButton.Location = new System.Drawing.Point(12, 12);
+            this.ImportFromClipboardButton.Location = new System.Drawing.Point(650, 12);
             this.ImportFromClipboardButton.Name = "ImportFromClipboardButton";
-            this.ImportFromClipboardButton.Size = new System.Drawing.Size(152, 23);
+            this.ImportFromClipboardButton.Size = new System.Drawing.Size(245, 23);
             this.ImportFromClipboardButton.TabIndex = 1;
             this.ImportFromClipboardButton.Text = "クリップボードからインポート";
             this.ImportFromClipboardButton.UseVisualStyleBackColor = true;
@@ -76,9 +89,9 @@
             // 
             this.AddCardGroupBox.Controls.Add(this.AddCardDisableRadioButton);
             this.AddCardGroupBox.Controls.Add(this.AddCardEnableRadioButton);
-            this.AddCardGroupBox.Location = new System.Drawing.Point(12, 41);
+            this.AddCardGroupBox.Location = new System.Drawing.Point(226, 12);
             this.AddCardGroupBox.Name = "AddCardGroupBox";
-            this.AddCardGroupBox.Size = new System.Drawing.Size(269, 44);
+            this.AddCardGroupBox.Size = new System.Drawing.Size(362, 44);
             this.AddCardGroupBox.TabIndex = 2;
             this.AddCardGroupBox.TabStop = false;
             this.AddCardGroupBox.Text = "カード一覧でクリックされたカードを追加";
@@ -107,9 +120,9 @@
             // 
             // ExportToClipboardButton
             // 
-            this.ExportToClipboardButton.Location = new System.Drawing.Point(170, 12);
+            this.ExportToClipboardButton.Location = new System.Drawing.Point(650, 41);
             this.ExportToClipboardButton.Name = "ExportToClipboardButton";
-            this.ExportToClipboardButton.Size = new System.Drawing.Size(152, 23);
+            this.ExportToClipboardButton.Size = new System.Drawing.Size(245, 23);
             this.ExportToClipboardButton.TabIndex = 3;
             this.ExportToClipboardButton.Text = "クリップボードにエクスポート";
             this.ExportToClipboardButton.UseVisualStyleBackColor = true;
@@ -119,9 +132,9 @@
             // 
             this.RemoveCardGroupBox.Controls.Add(this.RemoveCardDisableRadioButton);
             this.RemoveCardGroupBox.Controls.Add(this.RemoveCardEnableRadioButton);
-            this.RemoveCardGroupBox.Location = new System.Drawing.Point(12, 91);
+            this.RemoveCardGroupBox.Location = new System.Drawing.Point(226, 62);
             this.RemoveCardGroupBox.Name = "RemoveCardGroupBox";
-            this.RemoveCardGroupBox.Size = new System.Drawing.Size(269, 44);
+            this.RemoveCardGroupBox.Size = new System.Drawing.Size(362, 44);
             this.RemoveCardGroupBox.TabIndex = 4;
             this.RemoveCardGroupBox.TabStop = false;
             this.RemoveCardGroupBox.Text = "デッキカード一覧でクリックされたカードを除外";
@@ -150,19 +163,20 @@
             // 
             // DecksListBox
             // 
+            this.DecksListBox.Dock = System.Windows.Forms.DockStyle.Left;
             this.DecksListBox.FormattingEnabled = true;
             this.DecksListBox.ItemHeight = 12;
-            this.DecksListBox.Location = new System.Drawing.Point(519, 12);
+            this.DecksListBox.Location = new System.Drawing.Point(0, 0);
             this.DecksListBox.Name = "DecksListBox";
-            this.DecksListBox.Size = new System.Drawing.Size(269, 88);
+            this.DecksListBox.Size = new System.Drawing.Size(220, 232);
             this.DecksListBox.TabIndex = 5;
             this.DecksListBox.SelectedIndexChanged += new System.EventHandler(this.DecksListBox_SelectedIndexChanged);
             // 
             // ChangeDeckNameButton
             // 
-            this.ChangeDeckNameButton.Location = new System.Drawing.Point(519, 109);
+            this.ChangeDeckNameButton.Location = new System.Drawing.Point(226, 206);
             this.ChangeDeckNameButton.Name = "ChangeDeckNameButton";
-            this.ChangeDeckNameButton.Size = new System.Drawing.Size(269, 23);
+            this.ChangeDeckNameButton.Size = new System.Drawing.Size(204, 23);
             this.ChangeDeckNameButton.TabIndex = 6;
             this.ChangeDeckNameButton.Text = "デッキの名前を変更";
             this.ChangeDeckNameButton.UseVisualStyleBackColor = true;
@@ -170,9 +184,9 @@
             // 
             // SaveAsButton
             // 
-            this.SaveAsButton.Location = new System.Drawing.Point(655, 138);
+            this.SaveAsButton.Location = new System.Drawing.Point(226, 177);
             this.SaveAsButton.Name = "SaveAsButton";
-            this.SaveAsButton.Size = new System.Drawing.Size(133, 23);
+            this.SaveAsButton.Size = new System.Drawing.Size(204, 23);
             this.SaveAsButton.TabIndex = 8;
             this.SaveAsButton.Text = "別名で保存";
             this.SaveAsButton.UseVisualStyleBackColor = true;
@@ -180,9 +194,9 @@
             // 
             // NewDeckButton
             // 
-            this.NewDeckButton.Location = new System.Drawing.Point(519, 167);
+            this.NewDeckButton.Location = new System.Drawing.Point(650, 70);
             this.NewDeckButton.Name = "NewDeckButton";
-            this.NewDeckButton.Size = new System.Drawing.Size(269, 23);
+            this.NewDeckButton.Size = new System.Drawing.Size(245, 23);
             this.NewDeckButton.TabIndex = 9;
             this.NewDeckButton.Text = "新規";
             this.NewDeckButton.UseVisualStyleBackColor = true;
@@ -190,29 +204,112 @@
             // 
             // DeleteDeckButton
             // 
-            this.DeleteDeckButton.Location = new System.Drawing.Point(519, 196);
+            this.DeleteDeckButton.Location = new System.Drawing.Point(704, 206);
             this.DeleteDeckButton.Name = "DeleteDeckButton";
-            this.DeleteDeckButton.Size = new System.Drawing.Size(269, 23);
+            this.DeleteDeckButton.Size = new System.Drawing.Size(191, 23);
             this.DeleteDeckButton.TabIndex = 10;
             this.DeleteDeckButton.Text = "削除";
             this.DeleteDeckButton.UseVisualStyleBackColor = true;
             this.DeleteDeckButton.Click += new System.EventHandler(this.DeleteDeckButton_Click);
             // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.DecksListBox);
+            this.splitContainer1.Panel1.Controls.Add(this.RemoveCardGroupBox);
+            this.splitContainer1.Panel1.Controls.Add(this.SaveAsButton);
+            this.splitContainer1.Panel1.Controls.Add(this.ExportToClipboardButton);
+            this.splitContainer1.Panel1.Controls.Add(this.DeleteDeckButton);
+            this.splitContainer1.Panel1.Controls.Add(this.AddCardGroupBox);
+            this.splitContainer1.Panel1.Controls.Add(this.ChangeDeckNameButton);
+            this.splitContainer1.Panel1.Controls.Add(this.ImportFromClipboardButton);
+            this.splitContainer1.Panel1.Controls.Add(this.NewDeckButton);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
+            this.splitContainer1.Size = new System.Drawing.Size(907, 541);
+            this.splitContainer1.SplitterDistance = 232;
+            this.splitContainer1.TabIndex = 11;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.RegionListLabel);
+            this.splitContainer2.Panel1.Controls.Add(this.SpellCountLabel);
+            this.splitContainer2.Panel1.Controls.Add(this.UnitCountLabel);
+            this.splitContainer2.Panel1.Controls.Add(this.CardsDeckCountLabel);
+            this.splitContainer2.Panel1.Controls.Add(this.ChampionCountLabel);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.SoleObjectListView);
+            this.splitContainer2.Size = new System.Drawing.Size(907, 305);
+            this.splitContainer2.SplitterDistance = 302;
+            this.splitContainer2.TabIndex = 0;
+            // 
+            // SpellCountLabel
+            // 
+            this.SpellCountLabel.AutoSize = true;
+            this.SpellCountLabel.Location = new System.Drawing.Point(12, 61);
+            this.SpellCountLabel.Name = "SpellCountLabel";
+            this.SpellCountLabel.Size = new System.Drawing.Size(34, 12);
+            this.SpellCountLabel.TabIndex = 3;
+            this.SpellCountLabel.Text = "スペル";
+            // 
+            // UnitCountLabel
+            // 
+            this.UnitCountLabel.AutoSize = true;
+            this.UnitCountLabel.Location = new System.Drawing.Point(12, 36);
+            this.UnitCountLabel.Name = "UnitCountLabel";
+            this.UnitCountLabel.Size = new System.Drawing.Size(39, 12);
+            this.UnitCountLabel.TabIndex = 2;
+            this.UnitCountLabel.Text = "ユニット";
+            // 
+            // CardsDeckCountLabel
+            // 
+            this.CardsDeckCountLabel.AutoSize = true;
+            this.CardsDeckCountLabel.Location = new System.Drawing.Point(13, 131);
+            this.CardsDeckCountLabel.Name = "CardsDeckCountLabel";
+            this.CardsDeckCountLabel.Size = new System.Drawing.Size(57, 12);
+            this.CardsDeckCountLabel.TabIndex = 1;
+            this.CardsDeckCountLabel.Text = "カード枚数";
+            // 
+            // ChampionCountLabel
+            // 
+            this.ChampionCountLabel.AutoSize = true;
+            this.ChampionCountLabel.Location = new System.Drawing.Point(12, 12);
+            this.ChampionCountLabel.Name = "ChampionCountLabel";
+            this.ChampionCountLabel.Size = new System.Drawing.Size(58, 12);
+            this.ChampionCountLabel.TabIndex = 0;
+            this.ChampionCountLabel.Text = "チャンピオン";
+            // 
+            // RegionListLabel
+            // 
+            this.RegionListLabel.AutoSize = true;
+            this.RegionListLabel.Location = new System.Drawing.Point(13, 86);
+            this.RegionListLabel.Name = "RegionListLabel";
+            this.RegionListLabel.Size = new System.Drawing.Size(29, 12);
+            this.RegionListLabel.TabIndex = 4;
+            this.RegionListLabel.Text = "地域";
+            // 
             // ListOfCardsDeck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 543);
-            this.Controls.Add(this.DeleteDeckButton);
-            this.Controls.Add(this.NewDeckButton);
-            this.Controls.Add(this.SaveAsButton);
-            this.Controls.Add(this.ChangeDeckNameButton);
-            this.Controls.Add(this.DecksListBox);
-            this.Controls.Add(this.RemoveCardGroupBox);
-            this.Controls.Add(this.ExportToClipboardButton);
-            this.Controls.Add(this.AddCardGroupBox);
-            this.Controls.Add(this.ImportFromClipboardButton);
-            this.Controls.Add(this.SoleObjectListView);
+            this.ClientSize = new System.Drawing.Size(907, 541);
+            this.Controls.Add(this.splitContainer1);
             this.Name = "ListOfCardsDeck";
             this.Text = "ListOfCardsDeck";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ListOfCardsDeck_FormClosed);
@@ -222,6 +319,15 @@
             this.AddCardGroupBox.PerformLayout();
             this.RemoveCardGroupBox.ResumeLayout(false);
             this.RemoveCardGroupBox.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel1.PerformLayout();
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -242,5 +348,12 @@
         private System.Windows.Forms.Button SaveAsButton;
         private System.Windows.Forms.Button NewDeckButton;
         private System.Windows.Forms.Button DeleteDeckButton;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.Label ChampionCountLabel;
+        private System.Windows.Forms.Label CardsDeckCountLabel;
+        private System.Windows.Forms.Label UnitCountLabel;
+        private System.Windows.Forms.Label SpellCountLabel;
+        private System.Windows.Forms.Label RegionListLabel;
     }
 }

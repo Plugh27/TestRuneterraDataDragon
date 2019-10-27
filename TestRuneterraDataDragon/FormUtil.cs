@@ -70,12 +70,28 @@ namespace TestRuneterraDataDragon
         /// <param name="targetImage">処理対象の画像</param>
         /// <param name="clientSize">画像のサイズを指定</param>
         /// <param name="targetPictureBox">処理対象のコントロール</param>
-        public static void SetImageStretched(Image targetImage, Size clientSize, PictureBox targetPictureBox)
+        public static void SetImageStretchedByWidth(Image targetImage, Size clientSize, PictureBox targetPictureBox)
         {
-            // 伸縮後の幅と高さを計算（サイズの幅に合わせて伸縮する）
+            // 伸縮後の幅と高さを計算（クライアントサイズの幅に合わせて伸縮する）
             var imageSize = targetImage.Size;
             var resizeWidth = clientSize.Width;
             var resizeHeight = (int)(imageSize.Height * (double)resizeWidth / imageSize.Width);
+
+            // 伸縮後の画像を作成
+            var resizeBmp = GetStretchedImage(targetImage, resizeWidth, resizeHeight);
+
+            // 画像コントロールのサイズを調整
+            targetPictureBox.Width = resizeBmp.Width;
+            targetPictureBox.Height = resizeBmp.Height;
+            targetPictureBox.Image = resizeBmp;
+        }
+
+        public static void SetImageStretchedByHeight(Image targetImage, Size clientSize, PictureBox targetPictureBox)
+        {
+            // 伸縮後の幅と高さを計算（クライアントサイズの高さに合わせて伸縮する）
+            var imageSize = targetImage.Size;
+            var resizeHeight = clientSize.Height;
+            var resizeWidth = (int) (imageSize.Width * (double) resizeHeight / imageSize.Height);
 
             // 伸縮後の画像を作成
             var resizeBmp = GetStretchedImage(targetImage, resizeWidth, resizeHeight);

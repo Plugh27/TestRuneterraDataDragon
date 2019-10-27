@@ -82,12 +82,6 @@
     <Compile Include="ListOfCardsDeck.Designer.cs">
       <DependentUpon>ListOfCardsDeck.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListOfKeywords.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ListOfKeywords.Designer.cs">
-      <DependentUpon>ListOfKeywords.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setting.cs">
@@ -97,6 +91,12 @@
       <DependentUpon>Setting.cs</DependentUpon>
     </Compile>
     <Compile Include="Util.cs" />
+    <Compile Include="ViewAssociatedCards.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewAssociatedCards.Designer.cs">
+      <DependentUpon>ViewAssociatedCards.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewCardsDeckImage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,9 +128,6 @@
     <EmbeddedResource Include="ListOfCardsDeck.resx">
       <DependentUpon>ListOfCardsDeck.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ListOfKeywords.resx">
-      <DependentUpon>ListOfKeywords.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -142,6 +139,9 @@
     </Compile>
     <EmbeddedResource Include="Setting.resx">
       <DependentUpon>Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewAssociatedCards.resx">
+      <DependentUpon>ViewAssociatedCards.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewCardsDeckImage.resx">
       <DependentUpon>ViewCardsDeckImage.cs</DependentUpon>

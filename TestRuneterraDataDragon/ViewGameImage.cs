@@ -42,7 +42,7 @@ namespace TestRuneterraDataDragon
             string cardImageFilePath = Util.GetImageFilePath(targetCard, Util.JapaneseCode);
 
             Image targetImage = Image.FromFile(cardImageFilePath);
-            FormUtil.SetImageStretched(targetImage, ClientSize, SolePictureBox);
+            FormUtil.SetImageStretchedByWidth(targetImage, ClientSize, SolePictureBox);
         }
 
         private void ViewGameImage_Load(object sender, EventArgs e)

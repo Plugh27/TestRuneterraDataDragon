@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -40,18 +41,19 @@ namespace TestRuneterraDataDragon
             f.Show();
         }
 
-        private void ListOfKeywordsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var f = new ListOfKeywords();
-            f.MdiParent = this;
-            f.Show();
-        }
-
         private void Set1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var f = new ListOfCards();
-            f.MdiParent = this;
-            f.Show();
+            Form openForm = Application.OpenForms.OfType<ListOfCards>().FirstOrDefault();
+            if (openForm != null)
+            {
+                openForm.Show();
+            }
+            else
+            {
+                var f = new ListOfCards();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
 
         private void GameImageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -63,9 +65,18 @@ namespace TestRuneterraDataDragon
 
         private void ListOfCardsDeckToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var f = new ListOfCardsDeck();
-            f.MdiParent = this;
-            f.Show();
+            Form openForm = Application.OpenForms.OfType<ListOfCardsDeck>().FirstOrDefault();
+            if (openForm != null)
+            {
+                openForm.Show();
+
+            }
+            else
+            {
+                var f = new ListOfCardsDeck();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
 
         private void CardsDeckImageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -77,7 +88,22 @@ namespace TestRuneterraDataDragon
 
         private void UserInputDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var f = new ViewUserInputData();
+            Form openForm = Application.OpenForms.OfType<ViewUserInputData>().FirstOrDefault();
+            if (openForm != null)
+            {
+                openForm.Show();
+            }
+            else
+            {
+                var f = new ViewUserInputData();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void ViewAssociatedCardsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var f = new ViewAssociatedCards();
             f.MdiParent = this;
             f.Show();
         }

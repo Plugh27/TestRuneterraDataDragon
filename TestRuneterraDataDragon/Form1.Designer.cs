@@ -32,13 +32,12 @@
             this.FileFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ViewVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.GlobalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ListOfKeywordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Set1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GameImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ListOfCardsDeckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CardsDeckImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UserInputDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ViewAssociatedCardsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SoleMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,36 +70,21 @@
             // ViewVToolStripMenuItem
             // 
             this.ViewVToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.GlobalToolStripMenuItem,
             this.Set1ToolStripMenuItem,
             this.GameImageToolStripMenuItem,
             this.ListOfCardsDeckToolStripMenuItem,
             this.CardsDeckImageToolStripMenuItem,
-            this.UserInputDataToolStripMenuItem});
+            this.UserInputDataToolStripMenuItem,
+            this.ViewAssociatedCardsToolStripMenuItem});
             this.ViewVToolStripMenuItem.Name = "ViewVToolStripMenuItem";
             this.ViewVToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.ViewVToolStripMenuItem.Text = "表示(&V)";
-            // 
-            // GlobalToolStripMenuItem
-            // 
-            this.GlobalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ListOfKeywordsToolStripMenuItem});
-            this.GlobalToolStripMenuItem.Name = "GlobalToolStripMenuItem";
-            this.GlobalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.GlobalToolStripMenuItem.Text = "グローバル";
-            // 
-            // ListOfKeywordsToolStripMenuItem
-            // 
-            this.ListOfKeywordsToolStripMenuItem.Name = "ListOfKeywordsToolStripMenuItem";
-            this.ListOfKeywordsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.ListOfKeywordsToolStripMenuItem.Text = "キーワード";
-            this.ListOfKeywordsToolStripMenuItem.Click += new System.EventHandler(this.ListOfKeywordsToolStripMenuItem_Click);
             // 
             // Set1ToolStripMenuItem
             // 
             this.Set1ToolStripMenuItem.Name = "Set1ToolStripMenuItem";
             this.Set1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.Set1ToolStripMenuItem.Text = "セット1";
+            this.Set1ToolStripMenuItem.Text = "カードギャラリー";
             this.Set1ToolStripMenuItem.Click += new System.EventHandler(this.Set1ToolStripMenuItem_Click);
             // 
             // GameImageToolStripMenuItem
@@ -131,6 +115,13 @@
             this.UserInputDataToolStripMenuItem.Text = "データ入力";
             this.UserInputDataToolStripMenuItem.Click += new System.EventHandler(this.UserInputDataToolStripMenuItem_Click);
             // 
+            // ViewAssociatedCardsToolStripMenuItem
+            // 
+            this.ViewAssociatedCardsToolStripMenuItem.Name = "ViewAssociatedCardsToolStripMenuItem";
+            this.ViewAssociatedCardsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ViewAssociatedCardsToolStripMenuItem.Text = "関連カード画像";
+            this.ViewAssociatedCardsToolStripMenuItem.Click += new System.EventHandler(this.ViewAssociatedCardsToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -154,13 +145,12 @@
         private System.Windows.Forms.ToolStripMenuItem FileFToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SettingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ViewVToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem GlobalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ListOfKeywordsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Set1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem GameImageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ListOfCardsDeckToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem CardsDeckImageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem UserInputDataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ViewAssociatedCardsToolStripMenuItem;
     }
 }
 
