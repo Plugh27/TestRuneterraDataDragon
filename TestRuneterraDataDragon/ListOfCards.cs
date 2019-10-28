@@ -47,17 +47,15 @@ namespace TestRuneterraDataDragon
             // カラムの諸設定を行う
             var nameList = new List<string>
             {
+                "cost",
                 "name",
-                "type",
                 "region",
-                "spellSpeed",
                 "descriptionRaw"
             };
             var widthList = new List<int>
             {
+                40,
                 140,
-                80,
-                80,
                 80,
                 640
             };

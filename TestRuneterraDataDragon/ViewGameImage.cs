@@ -68,5 +68,23 @@ namespace TestRuneterraDataDragon
         {
             Clipboard.SetImage(SolePictureBox.Image);
         }
+
+        private void OpenDirectoryByExplorerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_selectedCardInfos.Count == 0)
+            {
+                // TODO: ダイアログでも出すか？
+                return;
+            }
+
+            // 先頭のカードのみ表示する
+            var targetCardInfos = new List<CardInfo> { _selectedCardInfos.First() };
+            var targetCard = targetCardInfos.First();
+
+            // カードのファイルパスを求める
+            string cardImageFilePath = Util.GetImageFilePath(targetCard, Util.JapaneseCode);
+
+            System.Diagnostics.Process.Start("EXPLORER.EXE", $"/select,\"{cardImageFilePath}\"");
+        }
     }
 }

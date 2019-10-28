@@ -32,6 +32,7 @@
             this.SolePictureBox = new System.Windows.Forms.PictureBox();
             this.SoleContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.CopyToClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpenDirectoryByExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.SolePictureBox)).BeginInit();
             this.SoleContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -50,16 +51,24 @@
             // SoleContextMenuStrip
             // 
             this.SoleContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.CopyToClipboardToolStripMenuItem});
+            this.CopyToClipboardToolStripMenuItem,
+            this.OpenDirectoryByExplorerToolStripMenuItem});
             this.SoleContextMenuStrip.Name = "SoleContextMenuStrip";
-            this.SoleContextMenuStrip.Size = new System.Drawing.Size(181, 48);
+            this.SoleContextMenuStrip.Size = new System.Drawing.Size(274, 70);
             // 
             // CopyToClipboardToolStripMenuItem
             // 
             this.CopyToClipboardToolStripMenuItem.Name = "CopyToClipboardToolStripMenuItem";
-            this.CopyToClipboardToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CopyToClipboardToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
             this.CopyToClipboardToolStripMenuItem.Text = "クリップボードにコピー";
             this.CopyToClipboardToolStripMenuItem.Click += new System.EventHandler(this.CopyToClipboardToolStripMenuItem_Click);
+            // 
+            // OpenDirectoryByExplorerToolStripMenuItem
+            // 
+            this.OpenDirectoryByExplorerToolStripMenuItem.Name = "OpenDirectoryByExplorerToolStripMenuItem";
+            this.OpenDirectoryByExplorerToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
+            this.OpenDirectoryByExplorerToolStripMenuItem.Text = "エクスプローラーで画像ファイルの場所を開く";
+            this.OpenDirectoryByExplorerToolStripMenuItem.Click += new System.EventHandler(this.OpenDirectoryByExplorerToolStripMenuItem_Click);
             // 
             // ViewGameImage
             // 
@@ -82,5 +91,6 @@
         private System.Windows.Forms.PictureBox SolePictureBox;
         private System.Windows.Forms.ContextMenuStrip SoleContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem CopyToClipboardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem OpenDirectoryByExplorerToolStripMenuItem;
     }
 }
