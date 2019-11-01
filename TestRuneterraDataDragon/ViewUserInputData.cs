@@ -136,5 +136,18 @@ namespace TestRuneterraDataDragon
 
             System.Diagnostics.Process.Start("https://lor.mobalytics.gg/ja_jp/cards/" + _selectedCardInfo.cardCode);
         }
+
+        private void MakeTextLinkButton_Click(object sender, EventArgs e)
+        {
+            // 選択中のカードが無ければ処理しない
+            if (_selectedCardInfo == null)
+            {
+                return;
+            }
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"<a href=\"{ImageUrlTextBox.Text}\" target=\"_blank\">{_selectedCardInfo.name}</a>");
+            Clipboard.SetText(sb.ToString());
+        }
     }
 }

@@ -32,16 +32,18 @@
             this.SolePictureBox = new System.Windows.Forms.PictureBox();
             this.SoleContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.CopyToClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SolePanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.SolePictureBox)).BeginInit();
             this.SoleContextMenuStrip.SuspendLayout();
+            this.SolePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // SolePictureBox
             // 
-            this.SolePictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SolePictureBox.Location = new System.Drawing.Point(0, 0);
             this.SolePictureBox.Name = "SolePictureBox";
-            this.SolePictureBox.Size = new System.Drawing.Size(984, 461);
+            this.SolePictureBox.Size = new System.Drawing.Size(841, 321);
+            this.SolePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.SolePictureBox.TabIndex = 0;
             this.SolePictureBox.TabStop = false;
             // 
@@ -55,23 +57,35 @@
             // CopyToClipboardToolStripMenuItem
             // 
             this.CopyToClipboardToolStripMenuItem.Name = "CopyToClipboardToolStripMenuItem";
-            this.CopyToClipboardToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CopyToClipboardToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.CopyToClipboardToolStripMenuItem.Text = "クリップボードにコピー";
             this.CopyToClipboardToolStripMenuItem.Click += new System.EventHandler(this.CopyToClipboardToolStripMenuItem_Click);
+            // 
+            // SolePanel
+            // 
+            this.SolePanel.AutoScroll = true;
+            this.SolePanel.Controls.Add(this.SolePictureBox);
+            this.SolePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SolePanel.Location = new System.Drawing.Point(0, 0);
+            this.SolePanel.Name = "SolePanel";
+            this.SolePanel.Size = new System.Drawing.Size(841, 324);
+            this.SolePanel.TabIndex = 1;
             // 
             // ViewCardsDeckImage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 461);
+            this.ClientSize = new System.Drawing.Size(841, 324);
             this.ContextMenuStrip = this.SoleContextMenuStrip;
-            this.Controls.Add(this.SolePictureBox);
+            this.Controls.Add(this.SolePanel);
             this.Name = "ViewCardsDeckImage";
             this.Text = "ViewCardsDeckImage";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ViewCardsDeckImage_FormClosed);
             this.Load += new System.EventHandler(this.ViewCardsDeckImage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.SolePictureBox)).EndInit();
             this.SoleContextMenuStrip.ResumeLayout(false);
+            this.SolePanel.ResumeLayout(false);
+            this.SolePanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -81,5 +95,6 @@
         private System.Windows.Forms.PictureBox SolePictureBox;
         private System.Windows.Forms.ContextMenuStrip SoleContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem CopyToClipboardToolStripMenuItem;
+        private System.Windows.Forms.Panel SolePanel;
     }
 }

@@ -39,6 +39,7 @@
             this.OpenMobalyticsPageButton = new System.Windows.Forms.Button();
             this.CardNameLabel = new System.Windows.Forms.Label();
             this.CardNameTextBox = new System.Windows.Forms.TextBox();
+            this.MakeTextLinkButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DraftPointNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,7 +90,7 @@
             this.CommentTextBox.Location = new System.Drawing.Point(116, 151);
             this.CommentTextBox.Multiline = true;
             this.CommentTextBox.Name = "CommentTextBox";
-            this.CommentTextBox.Size = new System.Drawing.Size(188, 64);
+            this.CommentTextBox.Size = new System.Drawing.Size(255, 64);
             this.CommentTextBox.TabIndex = 5;
             // 
             // ImageUrlLabel
@@ -105,12 +106,12 @@
             // 
             this.ImageUrlTextBox.Location = new System.Drawing.Point(116, 112);
             this.ImageUrlTextBox.Name = "ImageUrlTextBox";
-            this.ImageUrlTextBox.Size = new System.Drawing.Size(161, 19);
+            this.ImageUrlTextBox.Size = new System.Drawing.Size(716, 19);
             this.ImageUrlTextBox.TabIndex = 7;
             // 
             // OpenMobalyticsPageButton
             // 
-            this.OpenMobalyticsPageButton.Location = new System.Drawing.Point(405, 36);
+            this.OpenMobalyticsPageButton.Location = new System.Drawing.Point(404, 12);
             this.OpenMobalyticsPageButton.Name = "OpenMobalyticsPageButton";
             this.OpenMobalyticsPageButton.Size = new System.Drawing.Size(180, 23);
             this.OpenMobalyticsPageButton.TabIndex = 8;
@@ -132,14 +133,25 @@
             this.CardNameTextBox.Location = new System.Drawing.Point(116, 33);
             this.CardNameTextBox.Name = "CardNameTextBox";
             this.CardNameTextBox.ReadOnly = true;
-            this.CardNameTextBox.Size = new System.Drawing.Size(100, 19);
+            this.CardNameTextBox.Size = new System.Drawing.Size(255, 19);
             this.CardNameTextBox.TabIndex = 10;
+            // 
+            // MakeTextLinkButton
+            // 
+            this.MakeTextLinkButton.Location = new System.Drawing.Point(480, 179);
+            this.MakeTextLinkButton.Name = "MakeTextLinkButton";
+            this.MakeTextLinkButton.Size = new System.Drawing.Size(319, 26);
+            this.MakeTextLinkButton.TabIndex = 11;
+            this.MakeTextLinkButton.Text = "画像にリンクするハイパーリンクテキストをクリップボードにコピー";
+            this.MakeTextLinkButton.UseVisualStyleBackColor = true;
+            this.MakeTextLinkButton.Click += new System.EventHandler(this.MakeTextLinkButton_Click);
             // 
             // ViewUserInputData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 249);
+            this.ClientSize = new System.Drawing.Size(844, 249);
+            this.Controls.Add(this.MakeTextLinkButton);
             this.Controls.Add(this.CardNameTextBox);
             this.Controls.Add(this.CardNameLabel);
             this.Controls.Add(this.OpenMobalyticsPageButton);
@@ -174,5 +186,6 @@
         private System.Windows.Forms.Button OpenMobalyticsPageButton;
         private System.Windows.Forms.Label CardNameLabel;
         private System.Windows.Forms.TextBox CardNameTextBox;
+        private System.Windows.Forms.Button MakeTextLinkButton;
     }
 }

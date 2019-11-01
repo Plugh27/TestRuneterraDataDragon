@@ -24,12 +24,16 @@ namespace TestRuneterraDataDragon
         {
             Util.GetCardInfos(out var allCardInfos, Util.JapaneseCode);
 
-            // 受け取ったCardCodeAndCountのリストに相当するCardInfoのリストを作成する
-            List<CardInfo> cardInfos = new List<CardInfo>();
-            foreach (CardCodeAndCount cardCodeAndCount in displayDeck)
-            {
-                cardInfos.Add(Util.GetCardInfoFromCardCodeAndCount(allCardInfos, cardCodeAndCount));
-            }
+            // CardCodeAndCountのリストを元にCardDeckDetailのリストを作成する
+            List<CardDeckDetail> deckDetails = new List<CardDeckDetail>();
+            displayDeck.ForEach(s => deckDetails.Add(new CardDeckDetail(allCardInfos, s)));
+
+            // チャンピオン、チャンピオン以外のユニット、スペルの順でソートする
+            List<CardDeckDetail> temp = new List<CardDeckDetail>();
+            temp.AddRange(deckDetails.Where(s => s.cardInfo.type == "ユニット" && s.cardInfo.supertype == "チャンピオン"));
+            temp.AddRange(deckDetails.Where(s => s.cardInfo.type == "ユニット" && s.cardInfo.supertype != "チャンピオン"));
+            temp.AddRange(deckDetails.Where(s => s.cardInfo.type != "ユニット"));
+            deckDetails = temp;
 
             // マナコストの幅を定義
             List<Point> manacostMinMax = new List<Point>
@@ -43,35 +47,26 @@ namespace TestRuneterraDataDragon
                 new Point(7, 100)
             };
 
-            // 定義されたマナコスト毎のList<CardCodeAndCount>のリストを作成する
-            List<List<CardCodeAndCount> > byManaDecks = new List<List<CardCodeAndCount>>();
-            foreach (Point minMax in manacostMinMax)
-            {
-                List<CardInfo> columnCardInfos =
-                    cardInfos.Where(s => s.cost >= minMax.X && s.cost <= minMax.Y).ToList();
-
-                List<CardCodeAndCount> byManaDeck = new List<CardCodeAndCount>();
-                foreach (CardInfo cardInfo in columnCardInfos)
-                {
-                    byManaDeck.Add(Util.GetCardCodeAndCountFromCardInfo(displayDeck, cardInfo));
-                }
-
-                byManaDecks.Add(byManaDeck);
-            }
+            // 定義されたマナコスト毎のリストを作成する
+            List<List<CardDeckDetail> > byManaDecks = new List<List<CardDeckDetail>>();
+            manacostMinMax.ForEach(minMax =>
+                byManaDecks.Add(deckDetails.Where(s => s.cardInfo.cost >= minMax.X && s.cardInfo.cost <= minMax.Y)
+                    .ToList()));
+               
 
             int cardImageWidth = 136;
             int cardImageHeight = 205;
-            int yGap = 10;
-            int xGap = 10;
+            int yGap = 0;
+            int xGap = 0;
 
             int maxYPos = 0;
             int maxXPos = 0;
-            foreach (List<CardCodeAndCount> deck in byManaDecks)
+            foreach (List<CardDeckDetail> deck in byManaDecks)
             {
                 int yPos = 1;
-                foreach (CardCodeAndCount cardCodeAndCount in deck)
+                foreach (CardDeckDetail cardDeckDetail in deck)
                 {
-                    yPos += cardImageHeight + (yGap * cardCodeAndCount.Count);
+                    yPos += cardImageHeight + (yGap * cardDeckDetail.cardCodeAndCount.Count);
                 }
 
                 if (maxYPos < yPos)
@@ -91,13 +86,14 @@ namespace TestRuneterraDataDragon
                 canvas.InterpolationMode = InterpolationMode.HighQualityBicubic;
 
                 int xPos = 1;
-                foreach (List<CardCodeAndCount> oneColumnDeck in byManaDecks)
+                foreach (List<CardDeckDetail> oneColumnDeck in byManaDecks)
                 {
                     int yPos = 1;
-                    foreach (CardCodeAndCount oneCardCodeAndCount in oneColumnDeck)
+                    foreach (CardDeckDetail oneCardCodeAndCount in oneColumnDeck)
                     {
                         // カードのイメージを作成
-                        CardInfo target = Util.GetCardInfoFromCardCodeAndCount(allCardInfos, oneCardCodeAndCount);
+                        // CardInfo target = Util.GetCardInfoFromCardCodeAndCount(allCardInfos, oneCardCodeAndCount);
+                        CardInfo target = oneCardCodeAndCount.cardInfo;
                         string cardImageFilePath = Util.GetImageFilePath(target, Util.JapaneseCode); // TODO: 多言語対応
                         var fileImage = Image.FromFile(cardImageFilePath);
                         var cardImage = FormUtil.GetStretchedImage(fileImage, cardImageWidth, cardImageHeight);

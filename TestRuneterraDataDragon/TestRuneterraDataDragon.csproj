@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardDeckDetail.cs" />
     <Compile Include="DialogInputText.cs">
       <SubType>Form</SubType>
     </Compile>
