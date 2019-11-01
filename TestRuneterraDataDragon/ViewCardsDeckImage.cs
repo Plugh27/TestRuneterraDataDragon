@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -134,6 +135,18 @@ namespace TestRuneterraDataDragon
         private void CopyToClipboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Clipboard.SetImage(SolePictureBox.Image);
+        }
+
+        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "PNG Image|png";
+            sfd.FileName = "deckimage.png";
+
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                SolePictureBox.Image.Save(sfd.FileName, ImageFormat.Png);
+            }
         }
     }
 }

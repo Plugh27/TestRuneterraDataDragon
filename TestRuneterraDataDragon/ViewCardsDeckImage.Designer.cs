@@ -33,6 +33,7 @@
             this.SoleContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.CopyToClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SolePanel = new System.Windows.Forms.Panel();
+            this.SaveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.SolePictureBox)).BeginInit();
             this.SoleContextMenuStrip.SuspendLayout();
             this.SolePanel.SuspendLayout();
@@ -50,14 +51,15 @@
             // SoleContextMenuStrip
             // 
             this.SoleContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.CopyToClipboardToolStripMenuItem});
+            this.CopyToClipboardToolStripMenuItem,
+            this.SaveAsToolStripMenuItem});
             this.SoleContextMenuStrip.Name = "SoleContextMenuStrip";
-            this.SoleContextMenuStrip.Size = new System.Drawing.Size(169, 26);
+            this.SoleContextMenuStrip.Size = new System.Drawing.Size(181, 70);
             // 
             // CopyToClipboardToolStripMenuItem
             // 
             this.CopyToClipboardToolStripMenuItem.Name = "CopyToClipboardToolStripMenuItem";
-            this.CopyToClipboardToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.CopyToClipboardToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.CopyToClipboardToolStripMenuItem.Text = "クリップボードにコピー";
             this.CopyToClipboardToolStripMenuItem.Click += new System.EventHandler(this.CopyToClipboardToolStripMenuItem_Click);
             // 
@@ -70,6 +72,13 @@
             this.SolePanel.Name = "SolePanel";
             this.SolePanel.Size = new System.Drawing.Size(841, 324);
             this.SolePanel.TabIndex = 1;
+            // 
+            // SaveAsToolStripMenuItem
+            // 
+            this.SaveAsToolStripMenuItem.Name = "SaveAsToolStripMenuItem";
+            this.SaveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.SaveAsToolStripMenuItem.Text = "名前を付けて保存";
+            this.SaveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveAsToolStripMenuItem_Click);
             // 
             // ViewCardsDeckImage
             // 
@@ -96,5 +105,6 @@
         private System.Windows.Forms.ContextMenuStrip SoleContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem CopyToClipboardToolStripMenuItem;
         private System.Windows.Forms.Panel SolePanel;
+        private System.Windows.Forms.ToolStripMenuItem SaveAsToolStripMenuItem;
     }
 }
