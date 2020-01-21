@@ -111,7 +111,11 @@ namespace TestRuneterraDataDragon
                         yPos += cardImageHeight - yGap; //TODO: 調整、const
                     }
 
-                    xPos += cardImageWidth + xGap;
+                    // カードが一枚も無い列だったなら横位置を動かさない
+                    if (oneColumnDeck.Count != 0)
+                    {
+                        xPos += cardImageWidth + xGap;
+                    }
                 }
             }
 

@@ -24,6 +24,8 @@ namespace TestRuneterraDataDragon.JsonPattern
         public int health { get; set; }
         public string description { get; set; }
         public string descriptionRaw { get; set; }
+        public string levelupDescription { get; set; }
+        public string levelupDescriptionRaw { get; set; }
         public string flavorText { get; set; }
         public string artistName { get; set; }
         public string name { get; set; }
